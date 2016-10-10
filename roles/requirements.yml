@@ -1,3 +1,7 @@
+# Note : you need a role directory in the top level of the Project directory
+# And a requirements.yml file.
+# For ansible galaxy
 - src: yatesr.timezone
+# For github
 - src: http://github.com/WilliamRedHat/DemoAnsibleTower-Compliance
 
