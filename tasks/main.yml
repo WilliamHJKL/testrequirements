@@ -1,2 +1,17 @@
 ---
-# tasks file for testrequirements
+- name: install and configure httpd
+  hosts: all
+  tasks:
+  - name: Install httpd
+    yum:  pkg=httpd state=latest
+  - name: Install a web page
+    template:
+      src: ../templates/index.j2
+      dest: /var/www/html/index.html
+  - name: Open port
+    firewalld: "port={{ item }}/tcp state=enabled zone=public permanent=yes immediate=true"
+    with_items:
+      - 80
+      - 443
+  - name: start and enable httpd
+    service: "name=httpd state=started enabled=yes"# tasks file for testrequirements

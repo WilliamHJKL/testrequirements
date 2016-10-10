@@ -1,0 +1,31 @@
+<!-- # {{ ansible_managed }} -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Host {{ inventory_hostname }}</title>
+  <style>* { font-family: Helvetica, Arial, sans-serif }
+div {
+   width: 300px;
+   border: 25px solid;
+   padding: 25px;
+   margin: 25px;
+     }
+</style>
+</head>
+<body>
+  <h1>Host {{ inventory_hostname }}</h1>
+  <br>
+  IPv4 Address : {{ ansible_default_ipv4.address }}
+  <br>
+  Domain Name : {{ ansible_domain }}
+  <br>
+  <div>
+  Date : {{ ansible_date_time.date }}
+  Heure UTC  : {{ ansible_date_time.time }}
+  </div>
+  <div>
+  Clé publique : {{ ansible_ssh_host_key_rsa_public }}
+  </div>
+</body>
+</html>
